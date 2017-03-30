@@ -16,6 +16,7 @@ class App extends Component {
     this.props.addReminder(this.state.text);
   }
   render() {
+    console.log('this.props', this.props)
     return (
       <div>
         <div className="App">
@@ -48,4 +49,10 @@ class App extends Component {
 function mapDispatchToProps(dispatch){
   return bindActionCreators({addReminder}, dispatch);
 }
-export default connect(null,mapDispatchToProps)(App);
+
+function mapStateToProps(state){
+  return {
+    reminders: state
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App);
