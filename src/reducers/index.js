@@ -18,7 +18,7 @@ const removeById = (state = [], id) => {
     return reminders;
 }
 
-const reminders = (state, action) => {
+const reminders = (state = [], action) => {
   let reminders = null;
   state = read_cookie('reminders');
   switch(action.type){
